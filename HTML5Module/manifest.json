@@ -1,6 +1,6 @@
 {
 	"sap.app": {
-		"id": "sales.orders",
+		"id": "trialhtml5app",
     	"type": "application",
 		"applicationVersion": {
 			"version": "1.0.0"

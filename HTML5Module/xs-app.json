@@ -1,7 +1,13 @@
 {
   "welcomeFile": "/index.html",
-  "authenticationMethod": "route",
+  "authenticationMethod": "none",
   "routes": [
+    {
+      "source": "^/facts/(.*)$",
+      "target": "/$1",
+      "destination": "Facts",
+      "authenticationType": "none"
+    },
     {
       "source": "^(.*)$",
       "target": "$1",

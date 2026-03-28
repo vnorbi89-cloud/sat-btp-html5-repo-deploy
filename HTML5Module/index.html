@@ -5,6 +5,29 @@
     <title>Hello World</title>
 </head>
 <body>
-    <h1>Hello World!!!</h1>
+    <h1>Hello World!</h1>
+    
+  <button onclick="loadFact()">Facts</button>
+
+    <script>
+  
+    
+
+    async function loadFact() {
+
+      
+      const url = "./facts/random";
+      try {
+        const response = await fetch(url);
+        
+        const data = await response.json();
+        
+        alert(data.text);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+    
+   </script>
 </body>
 </html>
