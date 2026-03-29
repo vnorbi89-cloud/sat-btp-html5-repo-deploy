@@ -12,6 +12,7 @@ modules:
   - name: managed-html5-runtime-basic-mta
     type: com.sap.application.content
     requires:
+      - name: sample-basic-html5-uaa
       - name: sample-basic-html5-repo-host
       - name: sample-basic-html5-destination-service
         parameters:
@@ -24,6 +25,11 @@ modules:
               ServiceInstanceName: sample-basic-html5-repo-host
               ServiceKeyName: sample-basic-html5-repo-host-key
               sap.cloud.service: multi-cloud-html5-apps-samples
+            - Name: sample-basic-html5-uaa
+              ServiceInstanceName: sample-basic-html5-uaa
+              ServiceKeyName: sample-basic-html5-uaa-key
+              sap.cloud.service: multi-cloud-html5-apps-samples
+              Authentication: OAuth2UserTokenExchange
           existing_destinations_policy: update
     build-parameters:
       no-source: true
@@ -66,3 +72,10 @@ resources:
       service-plan: app-host
       service-keys: 
         - name: sample-basic-html5-repo-host-key
+  - name: sample-basic-html5-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service: xsuaa
+      service-name: sample-basic-html5-uaa
+      service-plan: application
