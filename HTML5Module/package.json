@@ -1,6 +1,9 @@
 {
   "name": "managed-html5-runtime-basic-mta",
   "version": "0.0.1",
+  "dependencies":{
+		"i18next": "latest"
+  },
   "scripts": {
     "build": "npm run clean && npm run zip",
     "zip": "npx bestzip HTML5Module-content.zip *",

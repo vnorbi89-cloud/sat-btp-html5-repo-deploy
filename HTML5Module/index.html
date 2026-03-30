@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Hello World</title>
+    
+    <script src="./node_modules/i18next/dist/umd/i18next.min.js"></script>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <h1 data-i18n="hello" >Hello World!</h1>
     
-  <button onclick="loadFact()">Facts</button>
+  <button data-i18n="button" onclick="loadFact()">Facts</button>
 
     <script>
   
@@ -29,5 +31,14 @@
     }
     
    </script>
+   
+<select id="langSelect">
+  <option value="en">English</option>
+  <option value="fr">Français</option>
+  <option value="nl">Nederlands</option>
+</select>
+
+
+<script src="./i18next.js"></script>
 </body>
 </html>
