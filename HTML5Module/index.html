@@ -7,38 +7,58 @@
     <script src="./node_modules/i18next/dist/umd/i18next.min.js"></script>
 </head>
 <body>
-    <h1 data-i18n="hello" >Hello World!</h1>
-    
+  <h1 data-i18n="hello" >Hello World!</h1>
   <button data-i18n="button" onclick="loadFact()">Facts</button>
+  <p>Fix mashup param: <span id="firstparam"></span></p>
+  <p>Context param: <span id="secondparam"></span></p>
 
-    <script>
-  
-    
+  <script>
 
-    async function loadFact() {
-
-      
+    async function loadFact() { 
       const url = "./facts/random";
       try {
         const response = await fetch(url);
-        
         const data = await response.json();
-        
         alert(data.text);
       } catch (error) {
         console.error("Error:", error);
       }
-    }
-    
-   </script>
-   
-<select id="langSelect">
-  <option value="en">English</option>
-  <option value="fr">Français</option>
-  <option value="nl">Nederlands</option>
-</select>
+    } 
+  </script>
+
+  <select id="langSelect">
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+    <option value="nl">Nederlands</option>
+  </select>
+
+	<h3>Mashup: Parameters</h3>
+	<br>
+	<table style="border: none;width: 400px;">
+		<tr>
+			<td style="width: 100px;"">1st Parameter:</td>
+			<td style="width: 200px;""><input type="text" id="Parameter1" readonly></td>
+		</tr>
+		<tr>
+			<td style="width: 100px;">2nd Parameter:</td>
+			<td tyle="width: 200px;"> <input type="text" id="Parameter2" readonly></td>
+		</tr>
+	</table>
+
+	<script>
+		// Get Parameters from iFrame
+		function getUrlParams() {
+			const urlParams = new URLSearchParams(window.location.search);
+			const firstparam = urlParams.get('firstparam');
+			const secondparam = urlParams.get('secondparam');
+			// Display the variable in the HTML element
+			document.getElementById('Parameter1').value = firstparam;
+			document.getElementById('Parameter2').value = secondparam;
+		}
+		window.onload = getUrlParams;
+	</script>
 
 
-<script src="./i18next.js"></script>
+  <script src="./i18next.js"></script>
 </body>
 </html>
