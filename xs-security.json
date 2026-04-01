@@ -4,17 +4,15 @@
   "description": "Security profile of called application",
   "scopes": [
     {
-      "name": "uaa.user",
-      "description": "UAA"
+      "name" : "$XSAPPNAME.Test-Access", 
+      "description": "Test Access scope"
     }
   ],
   "role-templates": [
     {
-      "name": "Token_Exchange",
-      "description": "UAA",
-      "scope-references": [
-        "uaa.user"
-      ]
+      "name": "TestAccess",
+      "description": "Test Access role",
+      "scope-references": ["$XSAPPNAME.Test-Access"]
     }
   ]
 }

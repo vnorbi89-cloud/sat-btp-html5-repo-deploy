@@ -37,11 +37,11 @@
 	<table style="border: none;width: 400px;">
 		<tr>
 			<td style="width: 100px;"">1st Parameter:</td>
-			<td style="width: 200px;""><input type="text" id="Parameter1" readonly></td>
+			<td style="width: 200px;""><input type="text" id="Parameter1"></td>
 		</tr>
 		<tr>
 			<td style="width: 100px;">2nd Parameter:</td>
-			<td tyle="width: 200px;"> <input type="text" id="Parameter2" readonly></td>
+			<td tyle="width: 200px;"> <input type="text" id="Parameter2"></td>
 		</tr>
 	</table>
 
@@ -56,8 +56,25 @@
 			document.getElementById('Parameter2').value = secondparam;
 		}
 		window.onload = getUrlParams;
-	</script>
 
+	</script>
+<p></p>
+ <a href="secondpage/index2.html?firstparam=John&secondparam=25">Go to Page 2 with link</a>
+ <p><br></p>
+
+<button onclick="navigateTo('secondpage/index2.html')">Go to Page 2 with button</button>
+
+<script>
+  function navigateTo(url) {
+      const param1 = document.getElementById('Parameter1').value;
+      const param2 = document.getElementById('Parameter2').value;
+      const queryString = new URLSearchParams({ 
+      firstparam: param1,
+      secondparam: param2
+    });
+    window.location.href = url + '?' + queryString;
+  }
+</script>
 
   <script src="./i18next.js"></script>
 </body>

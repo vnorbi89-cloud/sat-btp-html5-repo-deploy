@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Second page</title>
+    
+</head>
+<body>
+  <h1>Second page</h1>
+
+  <a href="../index.html" class="button">Go to Index</a>
+
+	<h3>Mashup: Parameters</h3>
+	<br>
+	<table style="border: none;width: 400px;">
+		<tr>
+			<td style="width: 100px;"">1st Parameter:</td>
+			<td style="width: 200px;""><input type="text" id="Parameter1" readonly></td>
+		</tr>
+		<tr>
+			<td style="width: 100px;">2nd Parameter:</td>
+			<td tyle="width: 200px;"> <input type="text" id="Parameter2" readonly></td>
+		</tr>
+	</table>
+
+	<script>
+		// Get Parameters from iFrame
+		function getUrlParams() {
+			const urlParams = new URLSearchParams(window.location.search);
+			const firstparam = urlParams.get('firstparam');
+			const secondparam = urlParams.get('secondparam');
+			// Display the variable in the HTML element
+			document.getElementById('Parameter1').value = firstparam;
+			document.getElementById('Parameter2').value = secondparam;
+		}
+		window.onload = getUrlParams;
+
+
+	</script>
+
+</body>
+</html>

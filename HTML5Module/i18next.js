@@ -1,5 +1,4 @@
 
-
 i18next.init(
 {
  ///   lng: navigator.language.split("-")[0] || "en",
